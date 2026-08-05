@@ -9,79 +9,80 @@
 
 ---
 
-## 📖 Sobre o projeto
+# 📖 Sobre o projeto
 
-O **EntreTrama** é um sistema de informação desenvolvido para auxiliar artesãos e pequenos empreendedores na gestão completa de seus negócios.
+O **EntreTrama** é um sistema de informação desenvolvido especificamente para atender às necessidades de gestão de pequenos negócios artesanais.
 
-O projeto nasceu da necessidade de substituir diversas planilhas utilizadas no controle diário por uma única plataforma capaz de integrar informações de clientes, produtos, produção, estoque, compras, vendas e financeiro.
+Diferentemente de sistemas de gestão tradicionais, o EntreTrama foi concebido considerando as particularidades da produção artesanal, como o controle de materiais, fichas técnicas, custos de produção, produção sob encomenda e gestão financeira.
 
-Além do gerenciamento operacional, o sistema busca transformar dados em informações úteis para apoiar a tomada de decisão por meio de indicadores, consultas e dashboards.
+O projeto nasceu da necessidade de substituir diversas planilhas utilizadas no controle diário por uma única plataforma capaz de integrar todas as etapas do negócio, desde a compra da matéria-prima até a venda do produto final.
 
-Este projeto está sendo desenvolvido como Trabalho de Conclusão de Curso (TCC) do curso de Gestão da Informação da Universidade Federal de Uberlândia (UFU).
+Além da gestão operacional, o sistema disponibilizará dashboards e indicadores para apoiar a tomada de decisão, permitindo que o empreendedor acompanhe a saúde financeira, produtiva e comercial do negócio.
+
+Este projeto está sendo desenvolvido como Trabalho de Conclusão de Curso (TCC) do curso de **Gestão da Informação** da Universidade Federal de Uberlândia (UFU).
 
 ---
 
 # 🎯 Objetivos
 
-- Centralizar todas as informações do negócio em um único sistema.
-- Eliminar controles distribuídos em planilhas.
-- Facilitar o gerenciamento de pedidos e produção.
-- Automatizar cálculos de custos e lucratividade.
-- Auxiliar o controle financeiro.
-- Gerar indicadores para apoio à tomada de decisão.
-- Disponibilizar dashboards para acompanhamento do negócio.
+- Centralizar todas as informações do negócio em uma única plataforma;
+- Gerenciar materiais, fornecedores e fichas técnicas;
+- Automatizar o cálculo dos custos de produção;
+- Controlar compras, produção, estoque, vendas e financeiro;
+- Disponibilizar indicadores e dashboards para apoio à tomada de decisão;
+- Reduzir a dependência de planilhas eletrônicas.
 
 ---
 
-# ✨ Funcionalidades
+# ✨ Principais Funcionalidades
 
-## 📦 Gestão de Produtos
+## 🧶 Gestão de Materiais
+
+- Cadastro de materiais
+- Controle de estoque
+- Movimentações
+- Estoque mínimo
+- Fornecedores
+
+### 📋 Fichas Técnicas
+
+- Cadastro de fichas técnicas
+- Materiais utilizados
+- Quantidade de cada material
+- Tempo estimado de produção
+- Cálculo automático do custo
+
+### 🏭 Produção
+
+- Ordens de produção
+- Status de produção
+- Prioridades
+- Consumo de materiais
+- Controle de prazos
+
+### 📦 Produtos
 
 - Cadastro de produtos
 - Categorias
 - Precificação
-- Tempo de produção
 - Custos
+- Tempo de produção
 
----
+### 👥 Clientes
 
-## 👥 Gestão de Clientes
-
-- Cadastro
-- Histórico de compras
+- Cadastro de clientes
+- Histórico de pedidos
 - Dados de contato
 
----
-
-## 🛒 Gestão de Vendas
+### 🛒 Vendas
 
 - Registro de vendas
-- Itens por venda
+- Itens da venda
 - Forma de pagamento
 - Canal de venda
 - Status do pedido
 
----
-
-## 🧵 Produção
-
-- Controle de produção
-- Status
-- Prioridades
-- Prazos
-
----
-
-## 📚 Estoque
-
-- Controle de materiais
-- Movimentações
-- Estoque mínimo
-- Consumo por produto
-
----
-
-## 💰 Financeiro
+### 💰 Financeiro
 
 - Receitas
 - Despesas
@@ -91,19 +92,17 @@ Este projeto está sendo desenvolvido como Trabalho de Conclusão de Curso (TCC)
 - Contas a receber
 - Fluxo de caixa
 
----
+### 📊 Business Intelligence
 
-## 📊 Business Intelligence
-
-- Dashboard executivo
-- Faturamento
-- Lucro
-- Ticket médio
-- Produtos mais vendidos
+- Dashboard Executivo
+- Dashboard Financeiro
+- Dashboard Comercial
+- Dashboard de Produção
+- Custos de produção
+- Produtos mais lucrativos
 - Curva ABC
 - Giro de estoque
 - Evolução das vendas
-- Indicadores financeiros
 
 ---
 
@@ -124,95 +123,80 @@ Este projeto está sendo desenvolvido como Trabalho de Conclusão de Curso (TCC)
 
 ```text
 Usuário
-
-↓
-
-Aplicação Web
-
-↓
-
-Python
-
-↓
-
-SQLAlchemy
-
-↓
-
-PostgreSQL
-
-↓
-
+      │
+      ▼
+Interface Web (Streamlit)
+      │
+      ▼
+Camada de Serviços (Python)
+      │
+      ▼
+Banco de Dados (PostgreSQL)
+      │
+      ▼
 Dashboards e Indicadores
 ```
 
 ---
 
-# 📂 Estrutura do projeto
+# 📂 Estrutura do Projeto
 
 ```text
-entretrama/
-
+EntreTrama/
 │
-
-├── app/
-
-├── database/
-
 ├── docs/
-
-├── dashboard/
-
-├── services/
-
-├── models/
-
-├── tests/
-
+├── src/
+├── README.md
 ├── requirements.txt
-
-└── README.md
+├── .gitignore
+└── LICENSE
 ```
 
 ---
 
-# 🚀 Roadmap
+# 🚀 Status do Projeto
 
-## Planejamento
+🚧 Em desenvolvimento
 
-- [ ] Levantamento de requisitos
-- [ ] Regras de negócio
-- [ ] Casos de uso
+Atualmente o projeto encontra-se na fase de levantamento de requisitos, modelagem do banco de dados e documentação.
 
-## Banco de Dados
+O desenvolvimento seguirá a seguinte ordem:
 
-- [ ] Modelo Entidade-Relacionamento
-- [ ] Modelo Relacional
-- [ ] PostgreSQL
-- [ ] Migração das planilhas
-
-## Desenvolvimento
-
-- [ ] Cadastro de clientes
-- [ ] Cadastro de produtos
-- [ ] Compras
-- [ ] Produção
-- [ ] Estoque
-- [ ] Financeiro
-- [ ] Vendas
-
-## Business Intelligence
-
-- [ ] Dashboard Executivo
-- [ ] Dashboard Financeiro
-- [ ] Dashboard Comercial
-- [ ] Dashboard Produção
+- Documentação
+- Banco de Dados
+- Backend
+- Interface
+- Dashboards
 
 ---
 
-# 🌱 Visão futura
+# 🌱 Evoluções Futuras
 
-O EntreTrama foi concebido para ser mais do que um sistema acadêmico. A proposta é evoluí-lo continuamente para atender às necessidades reais de pequenos negócios artesanais, tornando-se uma ferramenta prática de gestão e apoio à tomada de decisão para artesãos de diferentes segmentos.
+Algumas funcionalidades planejadas para versões futuras:
+
+- Leitura automática de notas fiscais e cupons utilizando Inteligência Artificial (OCR);
+- Cadastro automático de materiais a partir de notas fiscais;
+- Integração com marketplaces (Shopee, Elo7 e outros);
+- Aplicativo mobile;
+- Controle de múltiplos usuários;
+- Planejamento da produção;
+- Sugestão automática de compras de materiais;
+- Previsão de vendas utilizando Inteligência Artificial.
+
+---
+
+# 📚 Documentação
+
+Toda a documentação técnica do projeto encontra-se na pasta `docs`.
+
+- Visão Geral
+- Requisitos Funcionais
+- Requisitos Não Funcionais
+- Regras de Negócio
+- Casos de Uso
+- Modelagem
+- Arquitetura
+- Roadmap
 
 ---
 
@@ -221,3 +205,5 @@ O EntreTrama foi concebido para ser mais do que um sistema acadêmico. A propost
 **Thalita Judice**
 
 Graduanda em Gestão da Informação — Universidade Federal de Uberlândia (UFU)
+
+Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC).
