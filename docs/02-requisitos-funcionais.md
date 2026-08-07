@@ -124,7 +124,7 @@ Dashboards
 | RF045 | O sistema deve calcular automaticamente os materiais necessários para cada produção. | Alta |
 | RF046 | O sistema deve verificar se há materiais suficientes disponíveis para iniciar a produção. | Alta |
 | RF047 | O sistema deve reservar automaticamente os materiais ao iniciar uma produção. | Alta |
-| RF048 | O sistema deve impedir o início da produção caso não exista material suficiente. | Alta |
+| RF048 | O sistema deve alertar quando os materiais disponíveis forem insuficientes para atender uma produção. | Alta |
 | RF049 | O sistema deve liberar os materiais reservados caso a produção seja cancelada. | Média |
 | RF050 | O sistema deve registrar o consumo definitivo dos materiais ao concluir a produção. | Alta |
 | RF051 | O sistema deve permitir consultar produções pendentes, em andamento e concluídas. | Alta |
