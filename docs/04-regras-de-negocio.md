@@ -71,6 +71,9 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 | RN101 | As quantidades de materiais informadas nas fichas técnicas devem representar estimativas de consumo, podendo apresentar diferenças em relação ao consumo efetivo durante a produção artesanal. |
 | RN102 | O sistema deve permitir distribuir a quantidade total estimada de um material entre diferentes variações cadastradas, como cores de fio, utilizando percentuais cuja soma corresponda a 100%. |
 | RN103 | O sistema deve permitir definir uma margem percentual adicional para o consumo estimado de materiais sujeitos a variações, considerando essa margem no cálculo da necessidade de materiais e do custo estimado de produção. |
+| RN107 | Um produto deve representar um modelo artesanal, podendo ser produzido em diferentes cores, materiais e acabamentos sem exigir um novo cadastro de produto para cada combinação. |
+| RN108 | A ficha técnica deve permitir identificar os componentes necessários à produção, suas quantidades estimadas e quais deles admitem escolha de material ou variação no momento da produção. |
+| RN109 | Os componentes não personalizáveis devem manter os materiais definidos na ficha técnica, enquanto os componentes personalizáveis devem permitir a seleção entre materiais ou variações compatíveis previamente cadastrados. |
 
 
 # 4. Produção
@@ -93,6 +96,11 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 | RN053 | Uma ordem de produção cancelada deve assumir o status "Cancelada" e liberar os materiais anteriormente comprometidos com ela. |
 | RN054 | Cada ordem de produção deve possuir um prazo previsto para conclusão. |
 | RN055 | Alterações na ficha técnica de um produto não devem modificar retroativamente os materiais e custos registrados em produções já concluídas. |
+| RN110 | Cada ordem de produção deve registrar a configuração específica dos componentes personalizáveis da peça, incluindo os materiais, cores e acabamentos selecionados. |
+| RN111 | Uma ordem de produção pode estar vinculada a um pedido ou ser registrada para produzir peças destinadas à pronta entrega. |
+| RN112 | O cálculo da necessidade de materiais, do custo estimado e das quantidades comprometidas deve considerar a configuração definida para a ordem de produção. |
+| RN113 | A configuração de uma produção concluída deve ser preservada historicamente, mesmo que a ficha técnica do produto seja alterada posteriormente. |
+| RN114 | Peças concluídas e destinadas à pronta entrega devem permanecer identificáveis por produto e configuração, permitindo distinguir unidades disponíveis com diferentes cores e acabamentos. |
 
 # 5. Clientes
 

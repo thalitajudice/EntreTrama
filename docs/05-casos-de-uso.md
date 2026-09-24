@@ -303,8 +303,8 @@ O usuário desativa um produto, preservando seu histórico de vendas e produçõ
 1. O usuário acessa o cadastro de um produto.
 2. O usuário seleciona a opção de ficha técnica.
 3. O sistema apresenta os campos de composição do produto.
-4. O usuário adiciona os materiais utilizados.
-5. O usuário informa as quantidades estimadas de consumo.
+4. O usuário adiciona os componentes e materiais utilizados na produção.
+5. O usuário informa as quantidades estimadas de consumo e identifica quais componentes admitem personalização de material, cor ou acabamento.
 6. O usuário informa o tempo estimado de produção.
 7. O sistema consulta o custo médio dos materiais.
 8. O sistema calcula o custo estimado dos materiais.
@@ -336,6 +336,12 @@ O usuário modifica materiais, quantidades ou tempo estimado de produção. O si
 **FA05 - Ficha técnica incompleta**
 
 O usuário mantém o produto identificado como "Ficha Técnica Pendente" até que as informações necessárias sejam preenchidas.
+
+**FA06 - Componente personalizável**
+
+O usuário identifica um componente da ficha técnica como personalizável e define os materiais ou variações compatíveis que poderão ser selecionados em cada produção.
+
+A ficha técnica mantém a quantidade estimada de consumo do componente, sem exigir a criação de um novo produto para cada combinação possível.
 
 ### Pós-condições
 
@@ -453,7 +459,8 @@ O produto é incluído na venda sem gerar automaticamente uma nova ordem de prod
 ### Pré-condições
 
 - O produto deve estar cadastrado.
-- A ficha técnica deve possuir informações suficientes para calcular a necessidade de materiais.
+- Para calcular a necessidade de materiais e registrar seu comprometimento, a ficha técnica deve possuir informações suficientes.
+- Os materiais ou variações selecionados para os componentes personalizáveis devem estar cadastrados.
 
 ### Fluxo principal
 
@@ -496,6 +503,24 @@ O usuário cancela uma ordem e o sistema libera os compromissos de materiais que
 **FA05 - Diferença entre consumo previsto e real**
 
 O usuário pode registrar um ajuste de estoque para corrigir diferenças identificadas durante ou após a produção.
+
+**FA06 - Ficha técnica pendente**
+
+Quando o produto não possuir ficha técnica completa, o sistema permite registrar a necessidade de produção vinculada ao pedido, mantendo-a pendente de planejamento.
+
+O cálculo da necessidade de materiais e seu comprometimento no estoque somente devem ocorrer após a conclusão das informações necessárias na ficha técnica.
+
+**FA07 - Configuração personalizada da produção**
+
+O usuário seleciona os materiais, cores ou acabamentos dos componentes personalizáveis da peça.
+
+O sistema utiliza essa configuração para calcular a necessidade de materiais e o custo estimado da produção, considerando as quantidades previstas na ficha técnica.
+
+**FA08 - Produção para pronta entrega**
+
+O usuário registra uma ordem de produção sem vinculá-la a um pedido de cliente.
+
+Ao concluir a produção, o sistema registra a peça produzida e sua configuração, permitindo identificá-la como disponível para pronta entrega.
 
 ### Pós-condições
 
