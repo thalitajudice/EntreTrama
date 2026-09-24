@@ -3,7 +3,7 @@
 > **Versão:** 1.0  
 > **Projeto:** EntreTrama  
 > **Autora:** Thalita Judice  
-> **Última atualização:** 07/08/2026
+> **Última atualização:** 24/09/2026
 
 ---
 
@@ -26,6 +26,9 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 | RN005 | Materiais que possuam movimentações registradas não devem ser excluídos permanentemente, podendo apenas ser desativados. |
 | RN006 | Um material deve ser identificado como abaixo do estoque mínimo quando sua quantidade disponível for inferior ao limite definido para ele. |
 | RN007 | Um material pode ser cadastrado no sistema mesmo que nunca tenha sido adquirido e sua quantidade inicial em estoque seja zero. |
+| RN104 | O sistema deve permitir ajustes positivos e negativos na quantidade física dos materiais, para corrigir diferenças identificadas entre o estoque registrado e o estoque real. |
+| RN105 | Todo ajuste manual de estoque deve registrar o material, a quantidade ajustada, a data e o motivo da operação, preservando o histórico de movimentações. |
+| RN106 | Após um ajuste manual, o sistema deve recalcular a quantidade disponível do material considerando o estoque físico atualizado e as quantidades comprometidas com produções. | 
 
 # 2. Fornecedores e Compras
 
@@ -51,13 +54,12 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 
 | Código | Regra de Negócio |
 |---|---|
-| RN023 | Todo produto pode possuir uma ficha técnica contendo os materiais e as quantidades necessárias para sua produção. |
+| RN023 | Todo produto pode possuir uma ficha técnica contendo os materiais e as quantidades estimadas necessárias para produzir uma unidade. |
 | RN024 | Cada item da ficha técnica deve estar associado a um material previamente cadastrado. |
 | RN025 | A quantidade de material utilizada na ficha técnica deve ser registrada em uma unidade de medida compatível com o material. |
 | RN026 | Quando a unidade de compra for diferente da unidade utilizada na produção, o sistema deve considerar a conversão entre as unidades para calcular o consumo e o custo do material. |
 | RN027 | O custo de cada material na ficha técnica deve ser calculado proporcionalmente à quantidade utilizada e ao custo médio vigente do material. |
 | RN028 | O custo dos materiais de um produto deve corresponder à soma dos custos dos materiais presentes em sua ficha técnica. |
-| RN029 | O custo total estimado de um produto deve considerar o custo dos materiais e os demais custos de produção definidos para ele. |
 | RN030 | Alterações no custo médio de um material devem refletir no custo estimado dos produtos que utilizam esse material. |
 | RN031 | Um produto pode ser cadastrado sem ficha técnica completa, devendo ser identificado como "Ficha Técnica Pendente". |
 | RN032 | Produtos com ficha técnica pendente podem ser utilizados em vendas, mas não devem possuir custo de produção calculado automaticamente até que a ficha seja concluída. |
@@ -66,6 +68,10 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 | RN035 | Cada ficha técnica deve permitir informar o tempo estimado necessário para produzir uma unidade do produto. |
 | RN036 | O custo estimado de mão de obra de um produto deve ser calculado com base no tempo estimado de produção e no valor da hora de trabalho. |
 | RN037 | O custo total estimado do produto deve corresponder à soma do custo dos materiais, do custo de mão de obra e dos demais custos de produção definidos para o produto. |
+| RN101 | As quantidades de materiais informadas nas fichas técnicas devem representar estimativas de consumo, podendo apresentar diferenças em relação ao consumo efetivo durante a produção artesanal. |
+| RN102 | O sistema deve permitir distribuir a quantidade total estimada de um material entre diferentes variações cadastradas, como cores de fio, utilizando percentuais cuja soma corresponda a 100%. |
+| RN103 | O sistema deve permitir definir uma margem percentual adicional para o consumo estimado de materiais sujeitos a variações, considerando essa margem no cálculo da necessidade de materiais e do custo estimado de produção. |
+
 
 # 4. Produção
 
@@ -78,9 +84,7 @@ As regras foram organizadas de acordo com os principais módulos do sistema e co
 | RN042 | Quando a necessidade de materiais for superior ao estoque disponível, o sistema deve registrar o déficit como necessidade de reposição. |
 | RN043 | Os materiais necessários para uma produção devem ser considerados comprometidos para aquela produção, reduzindo a quantidade disponível para novas produções. |
 | RN044 | A quantidade disponível de um material pode assumir valor negativo quando as necessidades das produções forem superiores à quantidade existente em estoque. |
-| RN045 | O início de uma produção deve alterar seu status para "Em produção". |
-| RN046 | A conclusão de uma produção deve registrar o consumo definitivo dos materiais utilizados. |
-| RN047 | O cancelamento de uma produção deve liberar as quantidades de materiais anteriormente comprometidas com ela. |
+| RN046 | Ao concluir uma ordem de produção, o sistema deve registrar o consumo definitivo dos materiais, reduzir suas quantidades no estoque físico e liberar as quantidades anteriormente comprometidas com aquela produção, garantindo que cada material seja baixado apenas uma vez.  |
 | RN048 | Uma ordem de produção deve possuir um dos seguintes status: "Aguardando material", "Aguardando produção", "Em produção", "Concluída" ou "Cancelada". |
 | RN049 | Uma ordem de produção deve assumir o status "Aguardando material" quando houver déficit de um ou mais materiais necessários para sua produção. |
 | RN050 | Uma ordem de produção poderá assumir o status "Aguardando produção" quando todos os materiais necessários estiverem disponíveis, mas sua produção ainda não tiver sido iniciada. |
