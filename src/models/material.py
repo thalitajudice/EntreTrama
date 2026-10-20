@@ -11,6 +11,7 @@ class Material(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     nome: Mapped[str] = mapped_column(String(150), nullable=False)
+    marca: Mapped[str | None] = mapped_column(String(100),nullable=True,)
     categoria: Mapped[str] = mapped_column(String(100), nullable=False)
     unidade_controle: Mapped[str] = mapped_column(String(20), nullable=False)
     ativo: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
